@@ -2,18 +2,19 @@
 #'
 #' Plot decision boundaries, prediciton areas and original data for two features.
 #'
-#' @param task
-#' @param model
-#' @param grid.res
-#' @param x1.lim
-#' @param x2.lim
-#' @param colours
+#' @param task mlr classification task object //
+#'             Created by mlr::makeClassifTask
+#' @param model mlr WrappedModdel object
+#' @param grid.res numeric(1)
+#' @param x1.lim numeric(2)
+#' @param x2.lim numeric(2)
+#' @param colours "ESL": colours from the book "Elements of statistical learning"
 #'
-#' @return
+#' @return ggplot object
 #' @export
 #'
 #' @examples
-PlotClassification2D = function(task, model, grid.res = 100,
+plotClassification2D = function(task, model, grid.res = 100,
                                 x1.lim = NULL, x2.lim = NULL,
                                 colours = FALSE) {
   data = getTaskData(task, target.extra = TRUE)

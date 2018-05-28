@@ -14,7 +14,7 @@ me.model.rf = train(lrn.rf, tsk)
 me.model.knn30 = train(lrn.knn30, tsk)
 me.model.knn50 = train(lrn.knn50, tsk)
 
-PlotClassification2D(tsk, me.model.knn50, x1.lim = c(-8, 8), x2.lim = c(-6, 6), colours = "ESL")
+plotClassification2D(tsk, me.model.knn50, x1.lim = c(-8, 8), x2.lim = c(-6, 6), colours = "ESL")
 
 # binary classification, multiple features
 df = getTaskData(spam.task)
