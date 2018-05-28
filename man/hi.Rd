@@ -14,3 +14,8 @@ This is just a shorter way of calling \code{help(package = "package name")}.
 If you use RStudio you do not have to type the quotation marks (""),
 just autocomplete the package name by pressing TAB.
 }
+\examples{
+hi("bodomisc")
+help(package = "bodomisc")
+
+}

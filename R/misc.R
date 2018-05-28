@@ -9,7 +9,30 @@
 #' @export
 #'
 #' @examples
-factorMapping = function(x) {
+#' x = c(2,3,1,1,1,3,3,2,2,1)
+#' v1 = factor(x, levels = c(1, 2, 3), labels = c("red", "blue", "green"))
+#' v1
+#' FactorMapping(v1)
+#' v11 = factor(x, levels = c(3, 2, 1), labels = c("red", "blue", "green"))
+#' v11
+#' FactorMapping(v11)
+#' v111 = factor(x, labels = c("red", "blue", "green"))
+#' FactorMapping(v111)
+#' v111
+#' v1111 = factor(c(4,3,1,1,1,3,3,4,4,1), labels = c("red", "blue", "green"))
+#' FactorMapping(v1111)
+#' v1111
+#' ####################
+#' x2 = c(3,3,3,1,1,1,1,5,5,3,1)
+#' v2 = ordered(x2, levels = c(1, 3, 5), labels = c("Low", "Medium", "High"))
+#' v2
+#' ####################
+#' test = factor(c("yes","no"))
+#' levels(test)
+#' test
+#' FactorMapping(test)
+#'
+FactorMapping = function(x) {
   if(!is.factor(x)) stop("Object is not a factor.")
   data.frame(levels = unique(x), value = as.numeric(unique(x)))
 }
@@ -25,6 +48,9 @@ factorMapping = function(x) {
 #' @export
 #'
 #' @examples
+#' hi("bodomisc")
+#' help(package = "bodomisc")
+#'
 hi = function(package) {
   eval(call("help", package = package))
 }
