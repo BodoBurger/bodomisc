@@ -1,0 +1,30 @@
+---
+title: Untitled
+author: 
+  - name: Bodo Burger
+    #email: bb@example.com
+    #affiliation: LMU Munich
+date: 2018-00-00
+output:
+  html_document: 
+    toc: yes
+  github_document:
+    toc: yes
+  pdf_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning = TRUE,
+                      cache = TRUE, cache.path = "cache/",
+                      fig.path = "figures/file-name-")
+library("ggplot2")
+theme_set(theme_light())
+set.seed(4218)
+```
+
+**Give all chunks a name so that figures have a meaningful file name.**
+
+```{r name-it}
+
+```
+
