@@ -85,7 +85,8 @@ print.data.frame = function(data, all.rows=FALSE, max.rows=15, all.cols=FALSE, m
     rows.ellipsis = TRUE
   }
   if (n.cols <= max.cols | all.cols) cols = 1:n.cols else cols = c(1:6,(n.cols-5):n.cols)
-  capt.print = capture.output(base::print.data.frame(data[rows, cols]))
+  if (is.data.frame(data[rows, cols])) capt.print = capture.output(base::print.data.frame(data[rows, cols]))
+  else capt.print = capture.output(base::print(data[rows, cols]))
   if (row.names.not.numeric) {
     row.names.numerical = format(c("# ", paste0(rows, ":")), width = nchar(n.rows),
       justify = "right")
