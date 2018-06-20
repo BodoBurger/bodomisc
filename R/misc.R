@@ -76,7 +76,6 @@ hi = function(package) {
 #' print(mtcars, all.rows=TRUE)
 print.data.frame = function(data, all.rows=FALSE, max.rows=15, all.cols=FALSE, max.cols=15) {
   rows.ellipsis = FALSE
-  cols.ellipsis = FALSE
   n.rows = nrow(data)
   n.cols = ncol(data)
   row.names.not.numeric = any(is.na(suppressWarnings(as.numeric(row.names(data)))))
@@ -85,14 +84,13 @@ print.data.frame = function(data, all.rows=FALSE, max.rows=15, all.cols=FALSE, m
     rows.ellipsis = TRUE
   }
   if (n.cols <= max.cols | all.cols) cols = 1:n.cols else cols = c(1:6,(n.cols-5):n.cols)
-  if (is.data.frame(data[rows, cols])) capt.print = capture.output(base::print.data.frame(data[rows, cols]))
-  else capt.print = capture.output(base::print(data[rows, cols]))
-  if (row.names.not.numeric) {
-    row.names.numerical = format(c("# ", paste0(rows, ":")), width = nchar(n.rows),
-      justify = "right")
-    capt.print = paste(row.names.numerical, capt.print)
-  }
+  capt.print = capture.output(base::print.data.frame(data[rows, cols, drop=FALSE]))
   if (rows.ellipsis) capt.print = c(capt.print[1:6], "---", capt.print[7:11])
+  if (row.names.not.numeric) {
+    rnn = format(c("# ", paste0(rows, ":")), width = nchar(n.rows), justify = "right")
+    if (rows.ellipsis) rnn = c(rnn[1:6], substring("          ", 1, nchar(rnn[1])), rnn[7:11])
+    capt.print = paste(rnn, capt.print)
+  }
   cat(capt.print, sep = "\n")
   cat("### data.frame with", n.cols, "columns ###\n")
 }
