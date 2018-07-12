@@ -30,6 +30,8 @@ integer(length(x)) or factor
 Put values of vector in bins based on quantiles.
 }
 \examples{
+quantileBins(1:20, values.as.names = TRUE)
+
 n = 200
 x = runif(n, min = 0, max = 1)
 x1 = x + rnorm(n, 0, 0.05)
