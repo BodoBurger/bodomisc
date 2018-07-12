@@ -25,6 +25,8 @@ prepare = function(x) {
 #' @export
 #'
 #' @examples
+#' quantileBins(1:20, values.as.names = TRUE)
+#'
 #' n = 200
 #' x = runif(n, min = 0, max = 1)
 #' x1 = x + rnorm(n, 0, 0.05)
@@ -34,6 +36,11 @@ prepare = function(x) {
 #'   col = quantileBins(y))
 quantileBins = function(x, probs = c(0, .25, .5, .75, 1), include.lowest = TRUE, as.factor = FALSE,
     values.as.names = FALSE, ...) {
+  assertNumeric(x)
+  assertNumeric(probs)
+  assertLogical(include.lowest)
+  assertLogical(as.factor)
+  assertLogical(values.as.names)
   bins = cut(x, quantile(x, probs = probs, ...), include.lowest = include.lowest, ...)
   if (as.factor) return(bins)
   else {
