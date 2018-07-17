@@ -9,6 +9,35 @@ prepare = function(x) {
 
 }
 
+#' Scale data vector to 0-1-range (or another selectable range)
+#'
+#' Alternative names: min-max-scaling, data normalization.
+#'
+#' For standardazing with sample mean and sample standard deviation use base::scale().
+#'
+#' See \href{https://en.wikipedia.org/wiki/Feature_scaling}{Feature Scaling Wikipedia},
+#' \href{https://en.wikipedia.org/wiki/Normalization_(statistics)}{Normalization Wikipedia}.
+#'
+#' TODO: support matrices and data.frames
+#'
+#' @param x numeric
+#' @param lower.bound=0 Lowest value after scaling.
+#' @param upper.bound=1 Highest value after scaling.
+#'
+#' @return
+#' @export
+#'
+#' @examples
+#' normalize(1:101)
+#' normalize(rnorm(10, -10, 10), lower.bound = 0, upper.bound = 100)
+#'
+normalize = function(x, lower.bound = 0, upper.bound = 1) {
+  x.min = min(x)
+  c1 = (upper.bound - lower.bound)/(max(x) - x.min)
+  c2 = lower.bound - c1 * x.min
+  return(c1 * x + c2)
+}
+
 #' Put values of vector in bins based on quantiles.
 #'
 #' @param x (numeric) Vector you want to bin.
