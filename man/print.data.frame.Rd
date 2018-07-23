@@ -4,7 +4,7 @@
 \alias{print.data.frame}
 \title{Improved print.data.frame}
 \usage{
-\method{print}{data.frame}(data, all.rows = FALSE, max.rows = 15,
+\method{print}{data.frame}(data, all.rows = FALSE, max.rows = 30,
   all.cols = FALSE, max.cols = 15)
 }
 \arguments{

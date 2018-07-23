@@ -74,7 +74,7 @@ hi = function(package) {
 #' print(mtcars)
 #'
 #' print(mtcars, all.rows=TRUE)
-print.data.frame = function(data, all.rows=FALSE, max.rows=15, all.cols=FALSE, max.cols=15) {
+print.data.frame = function(data, all.rows=FALSE, max.rows=30, all.cols=FALSE, max.cols=15) {
   rows.ellipsis = FALSE
   n.rows = nrow(data)
   n.cols = ncol(data)
@@ -92,5 +92,5 @@ print.data.frame = function(data, all.rows=FALSE, max.rows=15, all.cols=FALSE, m
     capt.print = paste(rnn, capt.print)
   }
   cat(capt.print, sep = "\n")
-  cat("### data.frame with", n.cols, "columns ###\n")
+  cat("### data.frame with", n.rows, "rows and", n.cols, "columns ###\n")
 }
