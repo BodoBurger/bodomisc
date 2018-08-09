@@ -4,8 +4,9 @@
 \alias{quantileBins}
 \title{Put values of vector in bins based on quantiles.}
 \usage{
-quantileBins(x, probs = c(0, 0.25, 0.5, 0.75, 1), include.lowest = TRUE,
-  as.factor = FALSE, values.as.names = FALSE, ...)
+quantileBins(x, probs = c(0, 0.25, 0.5, 0.75, 1),
+  include.lowest = TRUE, as.factor = FALSE, values.as.names = FALSE,
+  ...)
 }
 \arguments{
 \item{x}{(numeric) Vector you want to bin.}

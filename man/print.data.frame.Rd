@@ -5,7 +5,7 @@
 \title{Improved print.data.frame}
 \usage{
 \method{print}{data.frame}(data, all.rows = FALSE, max.rows = 30,
-  all.cols = FALSE, max.cols = 15)
+  all.cols = FALSE, max.cols = 15, ...)
 }
 \arguments{
 \item{data}{data.frame}

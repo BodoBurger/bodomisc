@@ -74,7 +74,7 @@ hi = function(package) {
 #' print(mtcars)
 #'
 #' print(mtcars, all.rows=TRUE)
-print.data.frame = function(data, all.rows=FALSE, max.rows=30, all.cols=FALSE, max.cols=15) {
+print.data.frame = function(data, all.rows=FALSE, max.rows=30, all.cols=FALSE, max.cols=15, ...) {
   rows.ellipsis = FALSE
   n.rows = nrow(data)
   n.cols = ncol(data)
@@ -84,7 +84,7 @@ print.data.frame = function(data, all.rows=FALSE, max.rows=30, all.cols=FALSE, m
     rows.ellipsis = TRUE
   }
   if (n.cols <= max.cols | all.cols) cols = 1:n.cols else cols = c(1:6,(n.cols-5):n.cols)
-  capt.print = capture.output(base::print.data.frame(data[rows, cols, drop=FALSE]))
+  capt.print = capture.output(base::print.data.frame(data[rows, cols, drop=FALSE], ...))
   if (rows.ellipsis) capt.print = c(capt.print[1:6], "---", capt.print[7:11])
   if (row.names.not.numeric) {
     rnn = format(c("# ", paste0(rows, ":")), width = nchar(n.rows), justify = "right")

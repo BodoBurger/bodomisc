@@ -2,15 +2,22 @@
 title: Untitled
 author: 
   - name: Bodo Burger
-    #email: bb@example.com
     #affiliation: LMU Munich
+    #address: >
+    #  First line
+    #  Second line
+    #email: \email{bb@example.com}
+    #url: http://example.com
+  #- name: Second Author
+    #affiliation: Affiliation
 date: 2018-00-00
 output:
   html_document: 
     toc: yes
   github_document:
     toc: yes
-  pdf_document: default
+  pdf_document:
+    toc: yes
 ---
 
 ```{r setup, include=FALSE}
