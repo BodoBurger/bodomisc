@@ -12,6 +12,9 @@ LazyData: true
 RoxygenNote: 6.1.0
 Depends: R (>= 3.5.0)
 Imports:
-    checkmate
+    checkmate,
+    mlr,
+    ggplot2
 Suggests:
-    testthat
+    testthat,
+    randomForest

@@ -4,16 +4,18 @@
 \alias{plotClassification2D}
 \title{Visualize a classification task in 2D}
 \usage{
-plotClassification2D(task, model, grid.res = 100, x1.lim = NULL,
-  x2.lim = NULL, colours = FALSE)
+plotClassification2D(model, task, features, grid.res = 100,
+  x1.lim = NULL, x2.lim = NULL, colours = FALSE)
 }
 \arguments{
+\item{model}{mlr WrappedModdel object}
+
 \item{task}{mlr classification task object //
 Created by mlr::makeClassifTask}
 
-\item{model}{mlr WrappedModdel object}
+\item{features}{[\code{character(2)}]}
 
-\item{grid.res}{numeric(1)}
+\item{grid.res}{[\code{numeric(1)}]}
 
 \item{x1.lim}{numeric(2)}
 
@@ -26,4 +28,23 @@ ggplot object
 }
 \description{
 Plot decision boundaries, prediciton areas and original data for two features.
+}
+\examples{
+library(mlr)
+library(ggplot2)
+theme_set(theme_light())
+
+# visualize randomForest predictions on iris data
+require(randomForest)
+iris.mod.rf = train(makeLearner("classif.randomForest"), iris.task)
+plotClassification2D(iris.mod.rf, iris.task, features = c("Petal.Length", "Petal.Width"))
+
+# recreate plots from chapter 2 of "Elements of Statistical Learning"
+require(ElemStatLearn)
+me = ElemStatLearn::mixture.example
+df = data.frame(x1 = me$x[,1], x2 = me$x[,2], y = factor(me$y))
+tsk = makeClassifTask(data = df, target = "y")
+spam.knn = train(makeLearner("classif.knn", k = 15), tsk)
+plotClassification2D(spam.knn, tsk, features = c("x1", "x2"), colours = "ESL")
+
 }
