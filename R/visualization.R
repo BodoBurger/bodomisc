@@ -36,8 +36,8 @@
 plotClassification2D = function(model, task, features,
                                 grid.res = 100, x1.lim = NULL, x2.lim = NULL,
                                 colours = FALSE) {
-  data = getTaskData(task)
-  target = getTaskTargetNames(task)
+  data = mlr::getTaskData(task)
+  target = mlr::getTaskTargetNames(task)
   x1 = data[, features[1]]
   x2 = data[, features[2]]
   if (is.null(x1.lim)) x1.lim = c(min(x1), max(x1))
@@ -56,7 +56,7 @@ plotClassification2D = function(model, task, features,
       }
     }
   }
-  class = getPredictionResponse(predict(model, newdata = grid))
+  class = mlr::getPredictionResponse(predict(model, newdata = grid))
   p = ggplot() +
     geom_point(aes(x = grid[, features[1]], y = grid[, features[2]], col = class),
       shape = 20, size = .05, alpha = .5, show.legend = TRUE) +
