@@ -11,5 +11,9 @@ Install the development version from GitHub (using `devtools`):
 devtools::install_github("BodoBurger/bodomisc")
 ```
 
-# Links:
+# Documentation
+
+- [vignette on Github](https://github.com/BodoBurger/bodomisc/blob/master/vignettes/vignette.md)
+
+# Links
 - [When to use print(), cat(), message(), warning(), stop()](https://stackoverflow.com/questions/36699272/why-is-message-a-better-choice-than-print-in-r-for-writing-a-package)
