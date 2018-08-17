@@ -8,20 +8,21 @@ plotClassification2D(model, task, features, grid.res = 100,
   x1.lim = NULL, x2.lim = NULL, colours = FALSE)
 }
 \arguments{
-\item{model}{mlr WrappedModdel object}
+\item{model}{[mlr WrappedModdel object]}
 
-\item{task}{mlr classification task object //
+\item{task}{[mlr classification task object]
 Created by mlr::makeClassifTask}
 
-\item{features}{[\code{character(2)}]}
+\item{features}{[\code{character(2)}]
+Names of two numeric features.}
 
 \item{grid.res}{[\code{numeric(1)}]}
 
-\item{x1.lim}{numeric(2)}
+\item{x1.lim}{[\code{numeric(2)}]}
 
-\item{x2.lim}{numeric(2)}
+\item{x2.lim}{[\code{numeric(2)}]}
 
-\item{colours}{"ESL": colours from the book "Elements of statistical learning"}
+\item{colours}{[\code{character(1)}] "ESL": colours from the book "Elements of statistical learning"}
 }
 \value{
 ggplot object

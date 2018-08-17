@@ -2,14 +2,15 @@
 #'
 #' Plot decision boundaries, prediciton areas and original data for two features.
 #'
-#' @param model mlr WrappedModdel object
-#' @param task mlr classification task object //
-#'             Created by mlr::makeClassifTask
+#' @param model [mlr WrappedModdel object]
+#' @param task [mlr classification task object]
+#'   Created by mlr::makeClassifTask
 #' @param features [\code{character(2)}]
+#'   Names of two numeric features.
 #' @param grid.res [\code{numeric(1)}]
-#' @param x1.lim numeric(2)
-#' @param x2.lim numeric(2)
-#' @param colours "ESL": colours from the book "Elements of statistical learning"
+#' @param x1.lim [\code{numeric(2)}]
+#' @param x2.lim [\code{numeric(2)}]
+#' @param colours [\code{character(1)}] "ESL": colours from the book "Elements of statistical learning"
 #'
 #' @return ggplot object
 #' @export
@@ -48,7 +49,11 @@ plotClassification2D = function(model, task, features,
   other.features = setdiff(colnames(data), c(features, target))
   if (length(other.features) > 0) {
     for (f in other.features) {
-      grid[f] = mean(data[,f])
+      if (is.factor(data[[f]])) {
+        grid[f] = majority(data[[f]])
+      } else {
+        grid[f] = mean(data[,f])
+      }
     }
   }
   class = getPredictionResponse(predict(model, newdata = grid))

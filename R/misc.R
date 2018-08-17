@@ -55,6 +55,37 @@ hi = function(package) {
   eval(call("help", package = package))
 }
 
+#' Return most frequent level of factor (majority voting)
+#'
+#' @section TODO:
+#'   Provide choice if the majority voting is ambiguous.
+#'
+#' @param x a factor
+#'
+#' @return factor of length 1 with the same levels as x
+#' @export
+#'
+#' @examples
+#' x1 = c(2,3,1,1,1,3,3,2,2,1)
+#' f1 = factor(x1, levels = c(1, 2, 3), labels = c("red", "blue", "green"))
+#' f1
+#' majority(f1)
+#'
+#' x2 = c(2,3,1,1,1,3,3,2,2,1,2)
+#' f2 = factor(x2, levels = c(1, 2, 3), labels = c("red", "blue", "green"))
+#' f2
+#' majority(f2)
+#'
+#' x3 = c(3,3,3,1,1,1,1,5,5,3,1)
+#' o3 = ordered(x2, levels = c(1, 3, 5), labels = c("Low", "Medium", "High"))
+#' o3
+#' majority(o3)
+majority = function(x) {
+  if (!is.factor(x)) stop("x is not a factor.")
+  level = names(which.max(table(x)))
+  x[1:length(x)] = level
+  return(x[1])
+}
 
 #' Improved print.data.frame
 #'
