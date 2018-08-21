@@ -13,12 +13,13 @@ RoxygenNote: 6.1.0
 Depends: R (>= 3.5.0)
 Imports:
     checkmate,
-    mlr,
-    ggplot2
+    crayon,
+    ggplot2,
+    mlr
 Suggests:
-    testthat,
-    randomForest,
     ElemStatLearn,
     knitr,
-    rmarkdown
+    randomForest,
+    rmarkdown,
+    testthat
 VignetteBuilder: knitr
