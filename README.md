@@ -11,13 +11,11 @@ Install the development version from GitHub (using `devtools`):
 devtools::install_github("BodoBurger/bodomisc")
 ```
 
-I put this package in my [.Rprofile](https://csgillespie.github.io/efficientR/set-up.html#rprofile) file which contains the following lines:
+I put this package in my [.Rprofile](https://csgillespie.github.io/efficientR/set-up.html#rprofile) file using the following lines:
 
 ```
 if (interactive()) {
-  suppressMessages(require(devtools))
   suppressMessages(require(bodomisc))
-  suppressMessages(require(ggplot2))
 }
 ```
 
