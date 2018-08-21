@@ -18,6 +18,9 @@ output:
     toc: yes
   pdf_document:
     toc: yes
+urlcolor: blue
+#bibliography: "literature.bib"
+#link-citations: true
 ---
 
 ```{r setup, include=FALSE}
@@ -35,3 +38,4 @@ set.seed(4218)
 
 ```
 
+<!-- Citation: @bibtexID or [@bibtexID] -->

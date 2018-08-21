@@ -17,7 +17,7 @@ Return most frequent level of factor (majority voting)
 }
 \section{TODO}{
 
-  Provide choice if the majority voting is ambiguous.
+  If the majority voting is ambiguous: random choice or preferred level.
 }
 
 \examples{
