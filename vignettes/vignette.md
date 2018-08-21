@@ -1,7 +1,21 @@
 bodomisc Vignette
 ================
 Bodo Burger
-2018-08-17
+2018-08-21
+
+-   [Plot Classification in 2 Dimensions](#plot-classification-in-2-dimensions)
+    -   [Nearest neighbor](#nearest-neighbor)
+    -   [Random Forest and Iris Dataset](#random-forest-and-iris-dataset)
+-   [Miscellaneous Helper Functions](#miscellaneous-helper-functions)
+    -   [Majority Voting for Categorical Features](#majority-voting-for-categorical-features)
+    -   [Show Factor Level to Value Mapping](#show-factor-level-to-value-mapping)
+    -   [System and Session Information](#system-and-session-information)
+-   [Vignette help](#vignette-help)
+    -   [Vignette Info](#vignette-info)
+    -   [Styles](#styles)
+    -   [Figures](#figures)
+    -   [More Examples](#more-examples)
+-   [Notes](#notes)
 
 Plot Classification in 2 Dimensions
 ===================================
@@ -59,7 +73,24 @@ Majority Voting for Categorical Features
 Show Factor Level to Value Mapping
 ----------------------------------
 
+System and Session Information
+------------------------------
+
+``` r
+SystemInfo()
+#> ------ General -----
+#>    Operating system: Ubuntu 18.04.1 LTS (Linux 4.15.0-32-generic)
+#>           R version: 3.5.1 (2018-07-02) Feather Spray 
+#>      User interface: RStudio (1.1.456) 
+#> ------ Session -----
+#>   Working directory: /home/bodo/GitRepos/bodomisc/vignettes (change it using setwd() )
+#> Packages (attached): base, bodomisc, datasets, devtools, ElemStatLearn, ggplot2, graphics, grDevices, methods, mlr, ParamHelpers, stats, utils (13 packages attached)
+```
+
 ------------------------------------------------------------------------
+
+Vignette help
+=============
 
 Vignettes are long form documentation commonly included in packages. Because they are part of the distribution of the package, they need to be as compact as possible. The `html_vignette` output type provides a custom style sheet (and tweaks some options) to ensure that the resulting html is as small as possible. The `html_vignette` format:
 
@@ -109,5 +140,14 @@ You can write math expressions, e.g. *Y* = *X**β* + *ϵ*, footnotes[1],
 Also a quote using `>`:
 
 > "He who gives up \[code\] safety for \[code\] speed deserves neither." ([via](https://twitter.com/hadleywickham/status/504368538874703872))
+
+Notes
+=====
+
+Render multiple knitr output formats:
+
+``` r
+rmarkdown::render('vignettes/vignette.Rmd', output_format = 'all')
+```
 
 [1] A footnote here.

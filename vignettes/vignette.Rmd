@@ -3,8 +3,10 @@ title: "bodomisc Vignette"
 author: "Bodo Burger"
 date: "`r Sys.Date()`"
 output:
-  rmarkdown::html_vignette: default
-  rmarkdown::github_document: default
+  rmarkdown::html_vignette:
+    toc: true
+  rmarkdown::github_document:
+    toc: true
 vignette: >
   %\VignetteIndexEntry{bodomisc Vignette}
   %\VignetteEngine{knitr::rmarkdown}
@@ -17,6 +19,7 @@ knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>"
 )
+set.seed(4218)
 ```
 
 # Plot Classification in 2 Dimensions
@@ -59,8 +62,15 @@ plotClassification2D(iris.mod.rf, iris.task, features = c("Petal.Length", "Petal
 
 ## Show Factor Level to Value Mapping
 
+## System and Session Information
+
+```{r systeminfo}
+SystemInfo()
+```
 
 -----------------
+
+# Vignette help
 
 Vignettes are long form documentation commonly included in packages. Because they are part of the distribution of the package, they need to be as compact as possible. The `html_vignette` output type provides a custom style sheet (and tweaks some options) to ensure that the resulting html is as small as possible. The `html_vignette` format:
 
@@ -110,3 +120,11 @@ Also a quote using `>`:
 
 > "He who gives up [code] safety for [code] speed deserves neither."
 ([via](https://twitter.com/hadleywickham/status/504368538874703872))
+
+# Notes
+
+Render multiple knitr output formats:
+
+```{r notes, eval=FALSE}
+rmarkdown::render('vignettes/vignette.Rmd', output_format = 'all')
+```
