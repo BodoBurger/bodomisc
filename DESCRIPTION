@@ -6,7 +6,7 @@ Author: Bodo Burger
 Maintainer: Bodo Burger <bodo.burger@thisbiginternetsearchcompany.com>
 Description: More about what it does (maybe more than one line)
     Use four spaces when indenting paragraphs within the Description.
-License: What license is it under?
+License: GPL-3
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 6.1.0
@@ -17,6 +17,7 @@ Imports:
     ggplot2,
     mlr
 Suggests:
+    class,
     ElemStatLearn,
     knitr,
     randomForest,

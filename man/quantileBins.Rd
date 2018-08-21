@@ -9,20 +9,20 @@ quantileBins(x, probs = c(0, 0.25, 0.5, 0.75, 1),
   ...)
 }
 \arguments{
-\item{x}{(numeric) Vector you want to bin.}
+\item{x}{[\code{numeric}] Vector you want to bin.}
 
-\item{probs}{(numeric) Default is seq(0, 1, .25) (i.e. quartiles).}
+\item{probs}{[\code{numeric}] Default is seq(0, 1, .25) (i.e. quartiles).}
 
-\item{...}{further arguments passed down to the base functions quantile() and cut()}
-
-\item{include.lowest=TRUE}{(logical) Include element with lowest value. Who would not want that
+\item{include.lowest}{[\code{logical(1)}] Include element with lowest value. Who would not want that
 (except the authors of the base cut function)?}
 
-\item{as.factor=FALSE}{(logical) If TRUE returns a factor with quantile boundaries as level
+\item{as.factor}{[\code{logical(1)}] If TRUE returns a factor with quantile boundaries as level
 labels. Level labels can be changed via the labels argument.}
 
-\item{values.as.names=FALSE}{(logical) Return named vector with values of the input
+\item{values.as.names}{[\code{logical(1)}] Return named vector with values of the input
 so that you can see how bin numbers correspond to values of x.}
+
+\item{...}{further arguments passed down to the base functions quantile() and cut()}
 }
 \value{
 integer(length(x)) or factor

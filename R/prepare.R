@@ -1,13 +1,6 @@
-#' Title
-#'
-#' @param x
-#'
-#' @return
-#'
-#' @examples
-prepare = function(x) {
-
-}
+#prepare = function() {
+#
+#}
 
 #' Scale data vector to 0-1-range (or another selectable range)
 #'
@@ -21,10 +14,10 @@ prepare = function(x) {
 #' TODO: support matrices and data.frames
 #'
 #' @param x numeric
-#' @param lower.bound=0 Lowest value after scaling.
-#' @param upper.bound=1 Highest value after scaling.
+#' @param lower.bound Lowest value after scaling.
+#' @param upper.bound Highest value after scaling.
 #'
-#' @return
+#' @return numeric
 #' @export
 #'
 #' @examples
@@ -40,13 +33,13 @@ normalize = function(x, lower.bound = 0, upper.bound = 1) {
 
 #' Put values of vector in bins based on quantiles.
 #'
-#' @param x (numeric) Vector you want to bin.
-#' @param probs (numeric) Default is seq(0, 1, .25) (i.e. quartiles).
-#' @param include.lowest=TRUE (logical) Include element with lowest value. Who would not want that
+#' @param x [\code{numeric}] Vector you want to bin.
+#' @param probs [\code{numeric}] Default is seq(0, 1, .25) (i.e. quartiles).
+#' @param include.lowest [\code{logical(1)}] Include element with lowest value. Who would not want that
 #'   (except the authors of the base cut function)?
-#' @param as.factor=FALSE (logical) If TRUE returns a factor with quantile boundaries as level
+#' @param as.factor [\code{logical(1)}] If TRUE returns a factor with quantile boundaries as level
 #'   labels. Level labels can be changed via the labels argument.
-#' @param values.as.names=FALSE (logical) Return named vector with values of the input
+#' @param values.as.names [\code{logical(1)}] Return named vector with values of the input
 #'   so that you can see how bin numbers correspond to values of x.
 #' @param ... further arguments passed down to the base functions quantile() and cut()
 #'

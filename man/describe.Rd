@@ -4,10 +4,7 @@
 \alias{describe}
 \title{Description of a data object}
 \usage{
-describe(x)
-}
-\arguments{
-\item{x}{}
+describe()
 }
 \description{
 Description of a data object like a data.frame that is more comprehensive than basic R functions

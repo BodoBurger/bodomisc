@@ -4,24 +4,30 @@
 \alias{print.data.frame}
 \title{Improved print.data.frame}
 \usage{
-\method{print}{data.frame}(data, all.rows = FALSE, max.rows = 30,
-  all.cols = FALSE, max.cols = 15, ...)
+\method{print}{data.frame}(x, ..., all.rows = FALSE, max.rows = 30,
+  all.cols = FALSE, max.cols = 15)
 }
 \arguments{
-\item{data}{data.frame}
+\item{x}{[\code{data.frame}]}
 
-\item{all.rows=FALSE}{If TRUE, print out all rows.}
+\item{...}{optional arguments of \code{base::print.data.frame}}
 
-\item{max.rows=15}{integer Threshold for number of rows that are printed out.}
+\item{all.rows}{[\code{logical}] If TRUE, print out all rows.}
 
-\item{all.cols=FALSE}{If TRUE, print out all columns.}
+\item{max.rows}{[\code{integer}] Threshold for number of rows that are printed out.}
 
-\item{max.cols=10}{integer Threshold for number of columns that are printed out.}
+\item{all.cols}{[\code{logical}] If TRUE, print out all columns.}
+
+\item{max.cols}{[\code{integer}] Threshold for number of columns that are printed out.}
 }
 \description{
+This function improves readability of printing data.frame (avoids filling your console with clutter).
+Also displays number of rows and columns.
+}
+\details{
 If the number of rows of a data.frame exceeds \code{max.rows}
 only head and tail of the data.frame is printed. Also does not print out all columns
-if the are more than \code{max.cols}. Function can break if columns contain long strings.
+if there are more than \code{max.cols}. Function can break if columns contain long strings.
 }
 \examples{
 print(mtcars)

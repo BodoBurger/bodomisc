@@ -89,15 +89,19 @@ majority = function(x) {
 
 #' Improved print.data.frame
 #'
+#' This function improves readability of printing data.frame (avoids filling your console with clutter).
+#' Also displays number of rows and columns.
+#'
 #' If the number of rows of a data.frame exceeds \code{max.rows}
 #' only head and tail of the data.frame is printed. Also does not print out all columns
-#' if the are more than \code{max.cols}. Function can break if columns contain long strings.
+#' if there are more than \code{max.cols}. Function can break if columns contain long strings.
 #'
-#' @param data data.frame
-#' @param all.rows=FALSE If TRUE, print out all rows.
-#' @param max.rows=15 integer Threshold for number of rows that are printed out.
-#' @param all.cols=FALSE If TRUE, print out all columns.
-#' @param max.cols=10 integer Threshold for number of columns that are printed out.
+#' @param x [\code{data.frame}]
+#' @param all.rows [\code{logical}] If TRUE, print out all rows.
+#' @param max.rows [\code{integer}] Threshold for number of rows that are printed out.
+#' @param all.cols [\code{logical}] If TRUE, print out all columns.
+#' @param max.cols [\code{integer}] Threshold for number of columns that are printed out.
+#' @param ... optional arguments of \code{base::print.data.frame}
 #'
 #' @export
 #'
@@ -105,17 +109,17 @@ majority = function(x) {
 #' print(mtcars)
 #'
 #' print(mtcars, all.rows=TRUE)
-print.data.frame = function(data, all.rows=FALSE, max.rows=30, all.cols=FALSE, max.cols=15, ...) {
+print.data.frame = function(x, ..., all.rows=FALSE, max.rows=30, all.cols=FALSE, max.cols=15) {
   rows.ellipsis = FALSE
-  n.rows = nrow(data)
-  n.cols = ncol(data)
-  row.names.not.numeric = any(is.na(suppressWarnings(as.numeric(row.names(data)))))
+  n.rows = nrow(x)
+  n.cols = ncol(x)
+  row.names.not.numeric = any(is.na(suppressWarnings(as.numeric(row.names(x)))))
   if (n.rows <= max.rows | all.rows) rows = 1:n.rows else {
     rows = c(1:5,(n.rows-4):n.rows)
     rows.ellipsis = TRUE
   }
   if (n.cols <= max.cols | all.cols) cols = 1:n.cols else cols = c(1:6,(n.cols-5):n.cols)
-  capt.print = capture.output(base::print.data.frame(data[rows, cols, drop=FALSE], ...))
+  capt.print = capture.output(base::print.data.frame(x[rows, cols, drop=FALSE], ...))
   if (rows.ellipsis) capt.print = c(capt.print[1:6], "---", capt.print[7:11])
   if (row.names.not.numeric) {
     rnn = format(c("# ", paste0(rows, ":")), width = nchar(n.rows), justify = "right")

@@ -9,9 +9,12 @@ normalize(x, lower.bound = 0, upper.bound = 1)
 \arguments{
 \item{x}{numeric}
 
-\item{lower.bound=0}{Lowest value after scaling.}
+\item{lower.bound}{Lowest value after scaling.}
 
-\item{upper.bound=1}{Highest value after scaling.}
+\item{upper.bound}{Highest value after scaling.}
+}
+\value{
+numeric
 }
 \description{
 Alternative names: min-max-scaling, data normalization.
