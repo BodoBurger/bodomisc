@@ -40,8 +40,8 @@ plotClassification2D = function(model, task, features,
   target = mlr::getTaskTargetNames(task)
   x1 = data[, features[1]]
   x2 = data[, features[2]]
-  if (is.null(x1.lim)) x1.lim = c(min(x1), max(x1))
-  if (is.null(x2.lim)) x2.lim = c(min(x2), max(x2))
+  if (is.null(x1.lim)) x1.lim = range(x1)
+  if (is.null(x2.lim)) x2.lim = range(x2)
   grid = expand.grid(x1 = seq(x1.lim[1], x1.lim[2], length.out = grid.res),
                      x2 = seq(x2.lim[1], x2.lim[2], length.out = grid.res))
   colnames(grid) = features

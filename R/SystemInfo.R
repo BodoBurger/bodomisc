@@ -10,12 +10,12 @@ SystemInfo = function() {
   system.name = sys.info["sysname"]
   system.release = sys.info["release"]
   system.running = session.info$running
-  # the following lines can determine RStudio version
-  # but this requires rstudioapi to be added to the description
-  #if (rstudioapi::isAvailable()) {
-  #  user.interface = paste0("RStudio (", rstudioapi::getVersion(), ")")
-  #} else user.interface = .Platform$GUI
-  user.interface = .Platform$GUI
+  if (rstudioapi::isAvailable()) {
+    user.interface = paste0("RStudio ", rstudioapi::getVersion())
+  } else user.interface = .Platform$GUI
+  # if (exists("RStudio.Version")) { # method without RStudio API
+  #   user.interface = paste0("RStudio ", as.character(RStudio.Version()$version))
+  # } else user.interface = .Platform$GUI
   # session infos:
   working.directory = getwd()
   attached.packages = sort(sub("^package:", "", search()[grepl("^package:", search())]))
@@ -43,7 +43,10 @@ print.SystemInfo = function(x, ...) {
   cat(                "------ Session -----\n")
   cat(crayon::magenta("  Working directory:"), x$working.directory, "(change it using",
     crayon::italic("setwd()"), ")\n")
-  cat( crayon::silver("Packages (attached): "), paste0(x$attached.packages, collapse = ", "), " (",
-    length(x$attached.packages), " packages attached)", "\n", sep = "")
+  n.attached = length(x$attached.packages)
+  cat( crayon::silver("Packages (attached): "), paste0(x$attached.packages, collapse = ", "), sep = "")
+  cat(" (", n.attached, " packages attached)\n", sep = "")
+  #cat(                "                     ", "(", n.attached, " packages attached)\n", sep = "")
+  cat("\n")
   #cat(                "--------------------\n")
 }
