@@ -1,0 +1,30 @@
+---
+title: Untitled
+author: Bodo Burger
+date: 2019-00-00
+knit: (function(inputFile, encoding) { rmarkdown::render(inputFile, encoding = encoding, output_file = paste0(dirname(inputFile),'/../content/posts/2019-00-00-title.md')) })
+tags:
+  - "tag1"
+  - "tag2"
+categories: "category"
+output:
+  md_document:
+    variant: markdown+yaml_metadata_block
+    toc: no
+draft: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning = TRUE,
+                      cache = TRUE, cache.path = "cache/",
+                      fig.path = "figures/file-name-")
+library("ggplot2")
+theme_set(theme_light())
+set.seed(4218)
+```
+
+**Give all chunks a name so that figures have a meaningful file name.**
+
+```{r name-it}
+
+```

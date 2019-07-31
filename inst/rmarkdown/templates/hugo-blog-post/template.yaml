@@ -1,0 +1,4 @@
+name: Hugo Blog Post
+description: >
+  Basic template for creating a blog post with RMarkdown for static site generator Hugo
+create_dir: false
