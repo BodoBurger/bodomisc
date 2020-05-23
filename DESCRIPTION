@@ -14,13 +14,13 @@ Depends: R (>= 3.5.0)
 Imports:
     checkmate (>= 1.8.5),
     crayon (>= 1.3.4),
-    ggplot2 (>= 3.0.0),
-    mlr (>= 2.12.1),
     rstudioapi (>= 0.7)
 Suggests:
     class,
     ElemStatLearn,
+    ggplot2 (>= 3.0.0),
     knitr,
+    mlr (>= 2.12.1),
     randomForest,
     rmarkdown,
     testthat
